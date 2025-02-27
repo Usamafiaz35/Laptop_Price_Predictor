@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #ff5733;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #e64a19;
+        }
+        .result {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-laptop"></i> Laptop Price Predictor</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            
+            <label>{{ form.company.label }}</label>
+            {{ form.company }}
+            
+            <label>{{ form.type.label }}</label>
+            {{ form.type }}
+            
+            <label>{{ form.ram.label }}</label>
+            {{ form.ram }}
+            
+            <label>{{ form.weight.label }}</label>
+            {{ form.weight }}
+            
+            <label>{{ form.touchscreen.label }}</label>
+            {{ form.touchscreen }}
+            
+            <label>{{ form.ips.label }}</label>
+            {{ form.ips }}
+            
+            <label>{{ form.screen_size.label }}</label>
+            {{ form.screen_size }}
+            
+            <label>{{ form.resolution.label }}</label>
+            {{ form.resolution }}
+            
+            <label>{{ form.cpu.label }}</label>
+            {{ form.cpu }}
+            
+            <label>{{ form.hdd.label }}</label>
+            {{ form.hdd }}
+            
+            <label>{{ form.ssd.label }}</label>
+            {{ form.ssd }}
+            
+            <label>{{ form.gpu.label }}</label>
+            {{ form.gpu }}
+            
+            <label>{{ form.os.label }}</label>
+            {{ form.os }}
+            
+            <br><br>
+            <button type="submit"><i class="fas fa-calculator"></i> Predict Price</button>
+        </form>
+        
+        {% if price %}
+            <div class="result">Predicted Price: {{ price }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
